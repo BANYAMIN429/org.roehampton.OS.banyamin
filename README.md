@@ -1,54 +1,59 @@
-# 💻 CMPN202 Operating Systems Coursework: Linux Server Administration and Evaluation
+# Operating Systems Technical Journal
 
-## 👤 Project Details
-
-| Category | Detail |
-| :--- | :--- |
-| **Student Name** | Bany Amin |
-| **Student ID** | A00034522 |
-| **Module Title** | Operating Systems |
-| **Module Code** |CMPN202 |
-| **Assessment Type** |Technical Journal (50%) & Recorded Demonstration (50%) |
-| **Journal URL** | **[Insert your GitHub Pages URL here once published]** |
+**Name:** Bany Amin
+**Student ID:** A00034522
+**Module:** CMPN202 Operating Systems
+**Assessment:** Technical Journal & Portfolio
 
 ---
 
-## 🚀 Project Overview and Goal
+## Project Overview
 
-This coursework assesses the ability to configure, secure, and evaluate the performance of a Linux operating system.Over seven weeks, this project involves deploying a **headless Linux server** and administering it **remotely via SSH** from a separate workstation.
+This technical journal documents the configuration, security hardening, and performance analysis of a Linux-based server infrastructure. Over the course of 7 weeks, I will deploy a headless Ubuntu Server, manage it remotely via SSH, and critically evaluate its behavior under various workloads.
 
-The primary objectives are to:
-* Implement security controls and harden the remote system using command-line tools.
-* Develop proficiency in system administration tasks, including process monitoring and configuration
-* Critically analyze operating system behavior under different workloads and identify trade-offs between performance and security.
-
-This work aims to develop practical skills in Linux server administration, security hardening, and technical documentation, aligning with professional cloud/DevOps roles.It also addresses the theme of **Sustainability** by focusing on optimised OS configurations to reduce server energy consumption.
+The goal of this project is to demonstrate proficiency in:
+**System Administration:** Command-line interface (CLI) management without a GUI.
+**Security:** Implementing firewalls, SSH hardening, and access controls.
+**Performance Analysis:** Evaluating resource usage (CPU, RAM, I/O) and optimizing system behavior+.
 
 ---
 
-## 🛠️ System Architecture
+## System Architecture
 
-The project utilizes a dual-system architecture Server and Workstation to enforce command-line proficiency.
+### Infrastructure Setup
+For this project, I have selected a Type-2 Hypervisor deployment strategy:
 
-| System Component | Role and Technology |
-| :--- | :--- |
-| **Server System** |**Ubuntu Server** (Linux server distribution running headless).Administration is strictly via SSH from the workstation |
-| **Workstation System** |**Windows 11 Host Machine** using an SSH client (Option B).Used for remote administration and monitoring. |
-| **Hypervisor** | VirtualBox (Virtualisation platform). |
-| **Network** | Systems communicate via a network.Firewall rules will control SSH access from the workstation|
+* **Host System (Workstation):** Windows 10 using [Specify your SSH client, e.g., PowerShell, Putty, or Windows Terminal].
+* **Guest System (Server):** Ubuntu Server [Insert Version, e.g., 24.04 LTS] running on VirtualBox.
+
+> **Note:** A detailed System Architecture Diagram illustrating the network connection between my Windows Host and the Ubuntu VM is available in the [Week 1 Entry](./week1.md).
+
+### Distribution Selection
+I have selected **Ubuntu Server** for this coursework.
+* **Justification:** [Briefly summarize why you chose Ubuntu over Fedora/CentOS.Example: "Ubuntu was selected for its extensive documentation, stability in production environments, and package management efficiency (apt)..."]
 
 ---
 
-## 🗺️ Weekly Journal Navigation
+## Weekly Journal Entries
 
-The journal is structured into seven distinct phases [cite: 30][cite_start], documenting progressive learning, technical implementation, and critical reflection.
+Please navigate to the weekly entries below to view progress, technical implementations, and critical reflections.
 
-| Week | Phase Focus | Direct Link |
-| :--- | :--- | :--- |
-| **Week 1** |System Planning and Distribution Selection| [**Link to Week 1 Journal Page**] |
-| **Week 2** |Security Planning and Testing Methodology| [**Link to Week 2 Journal Page**] |
-| **Week 3** | Application Selection for Performance Testing| [**Link to Week 3 Journal Page**] |
-| **Week 4** |Initial System Configuration & Security Implementation | [**Link to Week 4 Journal Page**] |
-| **Week 5** |Advanced Security and Monitoring Infrastructure| [**Link to Week 5 Journal Page**] |
-| **Week 6** |Performance Evaluation and Analysis | [**Link to Week 6 Journal Page**] |
-| **Week 7** |Security Audit and System Evaluation | [**Link to Week 7 Journal Page**] |
+| Week | Phase | Focus Area | Status |
+| :--- | :--- | :--- | :--- |
+| **[Week 1](./week1.md)** | Planning | System Planning & Distribution Selection | [In Progress/Completed] |
+| **[Week 2](./week2.md)** | Design | Security Planning & Testing Methodology | [Pending] |
+| **[Week 3](./week3.md)** | Selection | Application Selection for Performance Testing | [Pending] |
+| **[Week 4](./week4.md)** | Deployment | Initial Configuration & Security Implementation | [Pending] |
+| **[Week 5](./week5.md)** | Hardening | Advanced Security & Monitoring Infrastructure | [Pending] |
+| **[Week 6](./week6.md)** | Analysis | Performance Evaluation & Optimization | [Pending] |
+| **[Week 7](./week7.md)** | Audit | Security Audit & Final System Evaluation | [Pending] |
+
+---
+
+## Technical Competencies Demonstrated
+Throughout this journal, I demonstrate the following learning outcomes:
+1.**LO3:** Assessing security vulnerabilities and applying mechanisms like SSH hardening and Firewalls.
+2.**LO4:** Proficiency in command-line tools for process monitoring and file manipulation.
+3.**LO5:** Critical evaluation of OS design limitations and hardware constraints.
+
+---

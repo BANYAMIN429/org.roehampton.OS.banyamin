@@ -16,7 +16,7 @@ This coursework utilizes a **Dual-System Architecture**  deployed on a single ph
 | **Workstation System** | Windows 10 Host (Running SSH client) | `192.168.1.78` |
 
 ### **Diagram Placeholder**
-*[Insert your detailed System Architecture Diagram here]*
+![](StudentID_W1_Arch_Diagram.png)
 
 ---
 ## 2. Distribution and Configuration Justification

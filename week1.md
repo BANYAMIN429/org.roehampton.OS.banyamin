@@ -47,6 +47,9 @@ The systems are connected via a **VirtualBox Bridged Adapter** This configuratio
 ## 4. System Specifications (CLI Evidence)
 
 The following outputs were gathered remotely via the established SSH connection, demonstrating initial command-line proficiency.
+
+![](BANYAMIN429_W1_SystemSpecs_CLI.png)
+
 `banyaminserver@banyaminserver:~$` is clearly visible*
 
 ### **A. Kernel Information (`uname -a`)**
@@ -68,7 +71,6 @@ Bash
 
 > **Analysis:** The VM is allocated approximately **1.9GiB of total memory**. Low usage demonstrates the resource efficiency benefits of the headless server configuration.
 
-![](BANYAMIN429_W1_SystemSpecs_CLI.png)
 
 ### **C. Disk Usage (`df -h`)**
 

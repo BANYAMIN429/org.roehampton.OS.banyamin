@@ -68,6 +68,8 @@ Bash
 
 > **Analysis:** The VM is allocated approximately **1.9GiB of total memory**. Low usage demonstrates the resource efficiency benefits of the headless server configuration.
 
+![cli](BANYAMIN429_W1_SystemSpecs_CLI.png)
+
 ### **C. Disk Usage (`df -h`)**
 
 Bash

@@ -40,8 +40,8 @@ The systems are connected via a **VirtualBox Bridged Adapter** This configuratio
 * **Workstation IP Address:** `192.168.1.78`
 * **Connection Protocol:** SSH (Port 22, TCP).
 
-**Remote Administration Evidence:**
-*[Insert Screenshot showing the successful SSH connection command (`ssh banyaminserver@192.168.1.187`) from the Windows PowerShell/Terminal to the Ubuntu Server, demonstrating commands executed via SSH*
+**Remote Administration Evidence:*
+![](StudentID_W1_SSH_Connection.png)
 
 ---
 ## 4. System Specifications (CLI Evidence)

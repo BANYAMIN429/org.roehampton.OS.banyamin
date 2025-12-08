@@ -14,7 +14,7 @@ The diagram below illustrates the dual-system architecture, showing the Windows 
 **Decision:** I have selected Ubuntu Desktop (configured for headless operation) hosted as a Virtual Machine.
 
 **Justification:**
-1.  **Troubleshooting "Safety Net":** As a student new to Linux administration, the risk of lockout via incorrect SSH or firewall configurations is high. The Desktop environment provides a local graphical console that serves as a fail-safe for recovery.
+1.  **Troubleshooting Safety Net:** As a student new to Linux administration, the risk of lockout via incorrect SSH or firewall configurations is high. The Desktop environment provides a local graphical console that serves as a fail-safe for recovery, allowing me to fix networking errors without rebuilding the entire VM.
 2.  **Headless Simulation via Systemd:** To satisfy the assessment requirement for a headless server, I will configure the system to boot into `multi-user.target` (CLI only) by default. This disables the GUI to save resources and demonstrates LO4 (System Configuration) by manually optimizing the run-level.
 3.  **Hardware Support:** The Desktop kernel provides robust driver support for virtualization out-of-the-box, allowing me to focus on OS configuration rather than hypervisor troubleshooting.
 
@@ -22,7 +22,7 @@ The diagram below illustrates the dual-system architecture, showing the Windows 
 **Decision:** I have selected Option B, using my native Windows 11 host as the workstation.
 
 **Justification:**
-1.  **Resource Efficiency:** Running a separate Linux VM for administration would waste host RAM. Using the native Windows host maximizes resources available to the Server VM for performance testing.
+1.  **Resource Efficiency:** Running a separate Linux VM for administration would waste host RAM. Using the native Windows host maximizes resources available to the Server VM for performance testing later in the project.
 2.  **Industry Realism:** Administering Linux servers from a Windows endpoint using SSH is a standard professional workflow.
 3.  **Tool Availability:** Windows 11 natively supports the OpenSSH client required for the assessment.
 
@@ -32,24 +32,11 @@ The VirtualBox network is configured to allow isolation and communication:
 * **Adapter 2:** Host-Only Adapter (Creates a private network `192.168.56.x` for SSH access between the Windows Host and the VM).
 
 ## 5. System Specifications (CLI Evidence)
-The following specifications were retrieved using command-line tools on the Ubuntu Server.
+The screenshot below documents the system specifications retrieved using the following commands sequentially:
+* `uname -a` (Kernel/Architecture)
+* `free -h` (Memory)
+* `df -h` (Disk Usage)
+* `ip addr` (Network Configuration)
+* `lsb_release -a` (Distribution Details)
 
-### Kernel Information (`uname -a`)
-> *Displays kernel version and system architecture.*
-![Screenshot of uname command](./uname_output.png)
-
-### Memory Availability (`free -h`)
-> *Shows total, used, and free RAM.*
-![Screenshot of free command](./free_output.png)
-
-### Disk Usage (`df -h`)
-> *Displays file system disk space usage.*
-![Screenshot of df command](./df_output.png)
-
-### Network IP Configuration (`ip addr`)
-> *Verifies the IP addresses assigned to the NAT and Host-Only adapters.*
-![Screenshot of ip addr command](./ip_addr_output.png)
-
-### Distribution Details (`lsb_release -a`)
-> *Confirms the specific release of Ubuntu installed.*
-![Screenshot of lsb_release command](./lsb_output.png)
+![System Specifications Evidence](./system_specifications.png)

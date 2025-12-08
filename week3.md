@@ -1,3 +1,4 @@
+
 # Week 3: Application Selection for Performance Testing
 
 ## 1. Introduction
@@ -61,5 +62,3 @@ To capture this data, I will use the following monitoring approach:
 The screenshot below demonstrates the successful installation of all selected tools on the Ubuntu Server.
 
 
-
-**Would you like to move on to Week 4 (Initial System Configuration)?** This is a big week where we set up the Firewall and SSH keys.

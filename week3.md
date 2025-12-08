@@ -62,3 +62,6 @@ To capture this data, I will use the following monitoring approach:
 The screenshot below demonstrates the successful installation of all selected tools on the Ubuntu Server.
 
 
+![Planning Files Evidence](./app_installation_evidence.png)
+
+

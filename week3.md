@@ -1,8 +1,3 @@
-### 1\. File Content: `week3.md`
-
-Copy and paste this into your file. I have selected industry-standard tools that are easy to install via command line and perfect for the required "workload types" (CPU, Memory, I/O, etc.).
-
-````markdown
 # Week 3: Application Selection for Performance Testing
 
 ## 1. Introduction

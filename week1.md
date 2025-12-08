@@ -6,7 +6,7 @@ This week documents the planning of the operating system deployment, the selecti
 ## 2. System Architecture Diagram
 The diagram below illustrates the dual-system architecture, showing the Windows 11 Workstation connecting to the Ubuntu Server via SSH over a VirtualBox Host-Only network.
 
-![System Architecture Diagram](./images/architecture_diagram.png)
+![System Architecture Diagram](./architecture_diagram.png)
 
 ## 3. Distribution Selection Justification
 
@@ -36,20 +36,20 @@ The following specifications were retrieved using command-line tools on the Ubun
 
 ### Kernel Information (`uname -a`)
 > *Displays kernel version and system architecture.*
-![Screenshot of uname command](./images/uname_output.png)
+![Screenshot of uname command](./uname_output.png)
 
 ### Memory Availability (`free -h`)
 > *Shows total, used, and free RAM.*
-![Screenshot of free command](./images/free_output.png)
+![Screenshot of free command](./free_output.png)
 
 ### Disk Usage (`df -h`)
 > *Displays file system disk space usage.*
-![Screenshot of df command](./images/df_output.png)
+![Screenshot of df command](./df_output.png)
 
 ### Network IP Configuration (`ip addr`)
 > *Verifies the IP addresses assigned to the NAT and Host-Only adapters.*
-![Screenshot of ip addr command](./images/ip_addr_output.png)
+![Screenshot of ip addr command](./ip_addr_output.png)
 
 ### Distribution Details (`lsb_release -a`)
 > *Confirms the specific release of Ubuntu installed.*
-![Screenshot of lsb_release command](./images/lsb_output.png)
+![Screenshot of lsb_release command](./lsb_output.png)

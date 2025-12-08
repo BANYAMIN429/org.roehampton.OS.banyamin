@@ -6,7 +6,7 @@ This week documents the planning of the operating system deployment, the selecti
 ## 2. System Architecture Diagram
 The diagram below illustrates the dual-system architecture, showing the Windows 11 Workstation connecting to the Ubuntu Server via SSH over a VirtualBox Host-Only network.
 
-![System Architecture Diagram](./architecture_diagram.png)
+![System Architecture Diagram](./diagram.png)
 
 ## 3. Distribution Selection Justification
 

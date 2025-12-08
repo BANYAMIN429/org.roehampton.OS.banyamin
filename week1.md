@@ -1,116 +1,55 @@
-# Week 1: System Planning and Distribution Selection 🛠️
+# Week 1: System Planning and Distribution Selection
 
-**Phase:** 1 (System Planning and Distribution Selection)
-**Focus:** System Architecture, Distribution Choice, and Initial Configuration
+## 1. Introduction
+This week documents the planning of the operating system deployment, the selection of the Linux distribution, and the establishment of the system architecture. The goal is to deploy a functional dual-system environment consisting of a Linux server and an administrative workstation.
 
----
+## 2. System Architecture Diagram
+The diagram below illustrates the dual-system architecture, showing the Windows 11 Workstation connecting to the Ubuntu Server via SSH over a VirtualBox Host-Only network.
 
-## 1. System Architecture Diagram 💻 $\rightleftharpoons$ 🖥️
+![System Architecture Diagram](./images/architecture_diagram.png)
 
-### **Architecture Overview**
-This coursework utilizes a **Dual-System Architecture**  deployed on a single physical laptop using the **VirtualBox Type-2 Hypervisor**.This setup is a pedagogical constraint designed to enforce command-line proficiency and develop professional remote administration skills.All server administration is performed exclusively via SSH from the workstation.
+## 3. Distribution Selection Justification
 
-| Component | Role in Architecture | IP Address |
-| :--- | :--- | :--- |
-| **Server System** |Headless Ubuntu Server VM | `192.168.1.187` |
-| **Workstation System** | Windows 10 Host (Running SSH client) | `192.168.1.78` |
+### Server System: Ubuntu Desktop (24.04 LTS)
+**Decision:** I have selected Ubuntu Desktop (configured for headless operation) hosted as a Virtual Machine.
 
-### **Diagram Placeholder**
-![](StudentID_W1_Arch_Diagram.png)
+**Justification:**
+1.  **Troubleshooting "Safety Net":** As a student new to Linux administration, the risk of lockout via incorrect SSH or firewall configurations is high. The Desktop environment provides a local graphical console that serves as a fail-safe for recovery.
+2.  **Headless Simulation via Systemd:** To satisfy the assessment requirement for a headless server, I will configure the system to boot into `multi-user.target` (CLI only) by default. This disables the GUI to save resources and demonstrates LO4 (System Configuration) by manually optimizing the run-level.
+3.  **Hardware Support:** The Desktop kernel provides robust driver support for virtualization out-of-the-box, allowing me to focus on OS configuration rather than hypervisor troubleshooting.
 
----
-## 2. Distribution and Configuration Justification
+### Workstation System: Windows 11 (Host)
+**Decision:** I have selected Option B, using my native Windows 11 host as the workstation.
 
-### **Server Distribution Choice**
-I selected **Ubuntu Server 24.04 LTS** (headless).
+**Justification:**
+1.  **Resource Efficiency:** Running a separate Linux VM for administration would waste host RAM. Using the native Windows host maximizes resources available to the Server VM for performance testing.
+2.  **Industry Realism:** Administering Linux servers from a Windows endpoint using SSH is a standard professional workflow.
+3.  **Tool Availability:** Windows 11 natively supports the OpenSSH client required for the assessment.
 
-* **Justification:** Ubuntu LTS provides long-term stability and security support, which is critical for the hardening tasks required later in the module.Its selection complies with the mandate for a headless Linux server distribution.
+## 4. Network Configuration
+The VirtualBox network is configured to allow isolation and communication:
+* **Adapter 1:** NAT (Allows the Server to access the internet for packages and updates).
+* **Adapter 2:** Host-Only Adapter (Creates a private network `192.168.56.x` for SSH access between the Windows Host and the VM).
 
-### **Workstation Configuration Decision**
-I chose **Option B: Host Machine with SSH Client** (Windows 10).
+## 5. System Specifications (CLI Evidence)
+The following specifications were retrieved using command-line tools on the Ubuntu Server.
 
-**Justification:** This approach is resource-efficient and develops professional remote administration skills by forcing all server management via SSH,mirroring industry-standard dual-system architecture used by cloud hosting providers.
+### Kernel Information (`uname -a`)
+> *Displays kernel version and system architecture.*
+![Screenshot of uname command](./images/uname_output.png)
 
----
-## 3. Network Configuration Documentation 🌐
+### Memory Availability (`free -h`)
+> *Shows total, used, and free RAM.*
+![Screenshot of free command](./images/free_output.png)
 
-The systems are connected via a **VirtualBox Bridged Adapter** This configuration ensures the Host (`192.168.1.78`) and the Guest (`192.168.1.187`) are on the same local subnet, simplifying remote SSH access.
+### Disk Usage (`df -h`)
+> *Displays file system disk space usage.*
+![Screenshot of df command](./images/df_output.png)
 
-* **Server IP Address:** `192.168.1.187`
-* **Workstation IP Address:** `192.168.1.78`
-* **Connection Protocol:** SSH (Port 22, TCP).
+### Network IP Configuration (`ip addr`)
+> *Verifies the IP addresses assigned to the NAT and Host-Only adapters.*
+![Screenshot of ip addr command](./images/ip_addr_output.png)
 
-**Remote Administration Evidence:*
-![](StudentID_W1_SSH_Connection.png)
-
----
-## 4. System Specifications (CLI Evidence)
-
-The following outputs were gathered remotely via the established SSH connection, demonstrating initial command-line proficiency.
-
-![](BANYAMIN429_W1_SystemSpecs_CLI.png)
-
-`banyaminserver@banyaminserver:~$` is clearly visible*
-
-### **A. Kernel Information (`uname -a`)**
-```bash
-banyaminserver@banyaminserver:~$ uname -a
-Linux banyaminserver 6.8.0-88-generic #89-Ubuntu SMP PREEMPT_DYNAMIC Sat Oct 11 01:02:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
-```
-
-> **Analysis:** The output confirms the system is running the **Linux kernel version 6.8.0-88-generic**, which is required for system configuration documentation.
-
-### **B. Memory Usage (`free -h`)**
-
-Bash
-
-    banyaminserver@banyaminserver:~$ free -h
-                   total        used        free      shared  buff/cache   available
-    Mem:           1.9Gi       344Mi       1.1Gi       1.0Mi       674Mi       1.6Gi
-    Swap:             0B          0B          0B
-
-> **Analysis:** The VM is allocated approximately **1.9GiB of total memory**. Low usage demonstrates the resource efficiency benefits of the headless server configuration.
-
-
-### **C. Disk Usage (`df -h`)**
-
-Bash
-
-    banyaminserver@banyaminserver:~$ df -h
-    Filesystem      Size  Used Avail Use% Mounted on
-    /dev/sda2        25G  2.7G   21G  12% /
-
-> **Analysis:** The root file system has **25GB allocated**, with only 12% utilization, providing ample space for application installation.
-
-### **D. Network Interface (`ip addr`)**
-
-Bash
-
-    banyaminserver@banyaminserver:~$ ip addr
-    # Output Snipped for clarity of IP address
-        inet 192.168.1.187/24 metric 100 brd 192.168.1.255 scope global dynamic enp0s3
-
-> **Analysis:** This verifies the server acquired the IP address **192.168.1.187**, validating the network configuration.
-
-### **E. Distribution Info (`lsb_release -a`)**
-
-Bash
-
-    banyaminserver@banyaminserver:~$ lsb_release -a
-    No LSB modules are available.
-    Distributor ID: Ubuntu
-    Description:    Ubuntu 24.04.3 LTS
-    Release:        24.04
-    Codename:       noble
-
-> **Analysis:** This confirms the system is running **Ubuntu 24.04.3 LTS**.
-
-* * *
-
-## 5\. Learning Reflection 🧠
-
-This week's focus was on system planning and deployment.
-
--   **Initial Challenge and Resolution:** The primary technical challenge was troubleshooting the initial SSH server installation, which required manually using `sudo apt install openssh-server` and verifying the service status with `systemctl status ssh`.
-    
--   **Key Learning:** The importance of verifying and configuring the **Bridged Adapter** proved critical, as it directly enabled the mandatory dual-system architecture by allowing the host and guest to communicate via distinct IP addresses (`192.168.1.78` and `192.168.1.187`). This foundation is crucial for the security and performance phases of the assessment.
+### Distribution Details (`lsb_release -a`)
+> *Confirms the specific release of Ubuntu installed.*
+![Screenshot of lsb_release command](./images/lsb_output.png)

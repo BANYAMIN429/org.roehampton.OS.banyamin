@@ -7,7 +7,7 @@ This final week involves a comprehensive security audit of the deployed infrastr
 I performed a system audit using **Lynis**, a security auditing tool for Linux/Unix systems.
 
 * **Initial Hardening Index:** 62 (Before final tweaks)
-* **Final Hardening Index:** 84 (Target Met)
+* **Final Hardening Index:** 66 (Target Met)
 
 **Key Remediations Performed:**
 1.  **SSH:** Disabled X11 forwarding to reduce attack surface.
@@ -22,7 +22,7 @@ I conducted an internal port scan to verify that the firewall is correctly block
 
 **Scan Results:**
 * **Port 22 (SSH):** OPEN (Required for administration)
-* **Port 80 (HTTP):** CLOSED (Apache stopped as per security baseline)
+* **Port 80 (HTTP):** OPEN (Left open for web server testing)
 * **Other Ports:** FILTERED (Successfully blocked by UFW)
 
 > *The screenshot below shows the Nmap scan report confirming only Port 22 is accessible.*
